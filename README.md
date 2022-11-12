@@ -11,13 +11,22 @@ Các hàm các bạn dùng trong Redux Saga: `takeEvery, takeLatest,` ... đây 
 
 ### Các Effect Creator nên biết 
 1.`takeEvery(pattern, saga, ...args)` Chạy saga mỗi lần khi có action `pattern` được dispatch, dispatch bao nhiêu sẽ chạy bấy nhiêu cái saga 
-2. `takeLatest(pattern, saga, ...args)` Chạy `saga`, nhưng khi có action `pattern` mới được dispatch, thì cái `saga trước đó` sẽ bị `cancel` 
+
+2. `takeLatest(pattern, saga, ...args)` Chạy `saga`, nhưng khi có action `pattern` mới được dispatch, thì cái `saga trước đó` sẽ bị `cancel`
+
 3. `takeLeading(pattern, saga, ...args)` Chạy `saga` khi action `pattern` được dispatch, những action tiếp theo sẽ bị cancel cho đến khi saga trước đó chạy xong. 
+
 4. `put(action)` Dispatch action từ saga 
+
 5. `call(fn, ...args)` Gọi hàm `fn` và truyền tham số `args` vào hàm đó 6 all([...effects]) Chạy tất cả effects cùng một lúc 
+
 7. `take(pattern) and fork(fn, ...args)` Mô hình watcher ... worker, đợi dispatch action `pattern` thì sẽ thực hiện một cái task nào đó 
+
 8. `throttle(ms, pattern, saga, ...args)` Throttle cái action `pattern`, đảm bảo `chỉ chạy saga 1 lần` trong khoảng thời gian `ms` 
+
 9. `debounce(ms, pattern, saga, ...args)` Debounce cái action `pattern`, đảm bảo `chỉ chạy saga 1 lần` sau khi đã đợi khoảng thời gian `ms` 
+
 10. `retry(maxTries, delay, fn, ...args)` Cố gắng gọi lại hàm `fn` nếu faield, sau mỗi `delay` milliseconds, và tối đa chỉ thử maxTries lần. 
+
 
 Ngoài ra còn có các creator khác, tham khảo thêm tại đây: [effect-creators](https://redux-saga.js.org/docs/api#effect-creators)
