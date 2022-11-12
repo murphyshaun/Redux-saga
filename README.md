@@ -31,3 +31,19 @@ Các hàm các bạn dùng trong Redux Saga: `takeEvery, takeLatest,` ... đây 
 
 
 Ngoài ra còn có các creator khác, tham khảo thêm tại đây: [effect-creators](https://redux-saga.js.org/docs/api#effect-creators)
+
+## [making-our-code-testable](https://redux-saga.js.org/docs/introduction/BeginnerTutorial/#making-our-code-testable)
+nên dùng `call` để gọi tới 1 hàm, để tiện trong quá trình viết unit test
+
+//Generator function => return generator object và gọi generator object .next .next cho đến khi done
+function* incrementAsync(){
+    //.next to delay
+    yield call(delay ,1000)
+
+    //.next to put
+    yield put({ type: 'INCREMENT'})
+
+    //.next to done
+}
+
+=> next 3 lần, mỗi lần so sánh với kết quả mong muốn
