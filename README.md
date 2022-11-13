@@ -79,3 +79,43 @@ LOGOUT
 authSlice: create reducer, action
 authSaga: create effect
 ```
+
+### navigaion in redux saga
+1. watch redux store and make redirect on component
+dùng useEffect với dependency một state nào đó, saga sẽ thay đổi state đấy
+
+```
+const function App() {
+    const loginSuccess = useAppSelector(state => state.auth.loginSuccess);
+
+    useEffect(() => {
+        // redirect to admin page
+    }, [loginSuccess])
+}
+```
+--> flow is fragmented, `hard to control` when you have more and more state
+
+2. using callback
+- this approach non-serializable (callback) in action and dispatch to redux store which is NOT RECOMMENDED BY Redux Toolkit.
+
+```
+const function App() {
+    const dispatch = useAppDispatch();
+
+    const handleLoginSubmit = (value) => {
+        dispatch(authActions.login({
+            ...value,
+            onSuccess: () => history.push('/admin'),
+            onError: () => console.log('Notify error to user'),
+        }))
+    }
+}
+```
+
+3. using connected-react-router
+- sync routings to redux
+- navigate by dispatching an action to redux store
+- one thing to make sure, when route changes, it doesn't cause re-render our components
+--> we'll go with this solution for now.
+lib: connected-react-router + custom history
+https://stackoverflow.com/questions/73599446/react-uncaught-typeerror-cannot-read-properties-of-undefined-reading-pathna
