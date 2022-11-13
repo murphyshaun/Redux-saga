@@ -55,3 +55,7 @@ rest client
 ## [json server](https://github.com/typicode/json-server)
 
 ## [axios interceptors](https://github.com/axios/axios#interceptors)
+
+## .ts vs .tsx
+.tsx dành cho component
+.ts dành cho những cái không phải component
