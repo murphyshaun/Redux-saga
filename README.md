@@ -47,7 +47,9 @@ function* incrementAsync(){
 }
 
 => next 3 lần, mỗi lần so sánh với kết quả mong muốn
-
+rest client
 ## [attached-forks-using-fork](https://redux-saga.js.org/docs/advanced/ForkModel#attached-forks-using-fork)
 
 ## [detached-forks-using-spawn](https://redux-saga.js.org/docs/advanced/ForkModel#detached-forks-using-spawn)
+
+## [json server](https://github.com/typicode/json-server)
