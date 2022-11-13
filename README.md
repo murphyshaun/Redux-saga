@@ -59,3 +59,23 @@ rest client
 ## .ts vs .tsx
 .tsx dành cho component
 .ts dành cho những cái không phải component
+
+
+## mini project
+authSaga
+1. if logged in, watch LOGOUT
+2. else watch LOGIN
+
+LOGIN
+- call login API to get token + user info
+- set token to local storage
+- redirect to admin page
+
+LOGOUT
+- clear token from local storage
+- redirect to login page
+
+```
+authSlice: create reducer, action
+authSaga: create effect
+```
