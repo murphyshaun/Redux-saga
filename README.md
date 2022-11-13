@@ -53,3 +53,5 @@ rest client
 ## [detached-forks-using-spawn](https://redux-saga.js.org/docs/advanced/ForkModel#detached-forks-using-spawn)
 
 ## [json server](https://github.com/typicode/json-server)
+
+## [axios interceptors](https://github.com/axios/axios#interceptors)
