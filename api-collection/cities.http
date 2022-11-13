@@ -4,4 +4,4 @@
 
 # @name getAllCities
 
-GET {{baseUrl}}/cities
+GET {{baseUrl}}/cities?_limit10&_page=1
