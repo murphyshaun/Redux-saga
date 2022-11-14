@@ -1,13 +1,12 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
-import { store } from './app/store';
+import { history, store } from './app/store';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 import { CssBaseline } from '@material-ui/core';
-import { ConnectedRouter } from 'connected-react-router';
-import { history } from 'utils';
+import { HistoryRouter as Router } from "redux-first-history/rr6";
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
@@ -15,10 +14,10 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <ConnectedRouter history={history}>
+      <Router history={history}>
         <CssBaseline />
         <App />
-      </ConnectedRouter>
+      </Router>
     </Provider>
   </React.StrictMode>
 );

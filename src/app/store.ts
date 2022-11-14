@@ -3,11 +3,17 @@ import counterReducer from '../features/counter/counterSlice';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './rootSaga';
 import authReducer from 'features/auth/authSlice';
-import { connectRouter, routerMiddleware } from 'connected-react-router';
-import { history } from 'utils';
+import { createReduxHistoryContext } from "redux-first-history";
+import { createBrowserHistory } from "history";
+
+const {
+  createReduxHistory,
+  routerMiddleware,
+  routerReducer
+} = createReduxHistoryContext({ history: createBrowserHistory() });
 
 const rootReducer = combineReducers({
-  router: connectRouter(history),
+  router: routerReducer,
   counter: counterReducer,
   auth: authReducer,
 })
@@ -16,9 +22,12 @@ const sagaMiddleware = createSagaMiddleware()
 
 export const store = configureStore({
   reducer: rootReducer,
-  middleware: (getDefaultMiddleware) =>
+  middleware: (getDefaultMiddleware) => {
     //default middleware toolkit + saga middleware 
-    getDefaultMiddleware().concat(sagaMiddleware, routerMiddleware(history)),
+    console.log(getDefaultMiddleware());
+    
+    return getDefaultMiddleware().concat(sagaMiddleware, routerMiddleware)
+  },
 });
 
 sagaMiddleware.run(rootSaga)
@@ -31,3 +40,5 @@ export type AppThunk<ReturnType = void> = ThunkAction<
   unknown,
   Action<string>
 >;
+
+export const history = createReduxHistory(store);

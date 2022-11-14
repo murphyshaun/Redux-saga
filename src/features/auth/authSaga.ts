@@ -1,6 +1,6 @@
 import { PayloadAction } from '@reduxjs/toolkit';
-import { push } from 'connected-react-router';
 import { call, delay, fork, put, take } from "redux-saga/effects";
+import { push } from 'redux-first-history';
 import { authActions, LoginPayload } from "./authSlice";
 
 /**

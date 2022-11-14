@@ -119,3 +119,7 @@ const function App() {
 --> we'll go with this solution for now.
 lib: connected-react-router + custom history
 https://stackoverflow.com/questions/73599446/react-uncaught-typeerror-cannot-read-properties-of-undefined-reading-pathna
+https://github.com/salvoravida/redux-first-history
+https://github.com/reZach/react-router-v6-upgrade/blob/master/app/src/core/nav.jsx
+
+## [resource](https://github.com/paulnguyen-mn/learn-rtk-saga)
