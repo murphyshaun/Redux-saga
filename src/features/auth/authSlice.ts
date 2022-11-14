@@ -50,7 +50,7 @@ export const authActions = authSlice.actions;
 // 2. Selectors
 //state => root state
 export const selectIsLoggedIn = (state: any) => state.auth.isLoggedIn;
-export const selectIsLoging = (state: any) => state.auth.isLogging;
+export const selectIsLogging = (state: any) => state.auth.isLogging;
 
 // 3. Reducer
 const authReducer = authSlice.reducer;
